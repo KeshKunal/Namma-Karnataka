@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Karnataka Travel Guide</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* Keep only page-specific styles, remove header/footer/nav styles here */
+  h1, h2 {
+    text-align: center;
+  }
+  .section {
+    margin-bottom: 40px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+  }
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    background: var(--card-bg);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+  .card img {
+    width: 100%;
+    display: block;
+  }
+  .card h3 {
+    margin: 10px;
+  }
+  .card p {
+    margin: 0 10px 10px 10px;
+    display: none;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .itinerary-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  .itinerary-card img {
+    width: 100%;
+    display: block;
+  }
+  .itinerary-card h3 {
+    margin: 10px;
+  }
+  .itinerary-card p {
+    margin: 0 10px 15px 10px;
+    font-size: 0.95rem;
+    white-space: pre-line;
+    color: var(--text-muted);
+  }
+  @media (max-width: 600px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<script src="js/script.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container main-nav">
+            <a href="index.html" class="logo">ನಮ್ಮKarnataka</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="modern.html">Modern</a></li>
+                <li><a href="nature.html">Nature</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="tourism.html" class="active">Tourism</a></li>
+                <li><a href="food.html">Cuisine</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle light/dark mode">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Karnataka Travel Guide</h1>
+
+            <section class="section">
+              <h2>Top Destinations</h2>
+              <div class="cards" id="top-destinations"></div>
+            </section>
+
+            <section class="section">
+              <h2>Hidden Gems</h2>
+              <div class="cards" id="hidden-gems"></div>
+            </section>
+
+            <section class="section">
+              <h2>City Guides</h2>
+              <div class="cards" id="city-guides"></div>
+            </section>
+
+            <section class="section">
+              <h2>Travel Itineraries</h2>
+              <div class="cards" id="itineraries"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div style="width: 100%; height: 8px; background-color: #FFD700;"></div>
+        <div style="width: 100%; height: 8px; background-color: #FF0000;"></div>
+        <div class="container">
+            <p>&copy; 2025 ನಮ್ಮKarnataka. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<script>
+ 
+  // Data arrays
+  const topDestinations = [
+  {
+    name: "Hampi",
+    img: "https://www.tallengestore.com/cdn/shop/files/SunriseStoneChariotAtHampiInKarnataka-TemplesOfIndia_c49701b3-dd09-4250-aa5b-0621d6eac9b2.jpg?v=1753079137",
+    desc: "UNESCO World Heritage site with ancient temples, ruins, and boulder-strewn landscapes."
+  },
+  {
+    name: "Mysuru",
+    img: "https://images.timesnownews.com/thumb/msid-152178511,thumbsize-138964,width-1280,height-720,resizemode-75/152178511.jpg",
+    desc: "Known for Mysore Palace, silk sarees, and Dussehra festival."
+  },
+  {
+    name: "Coorg",
+    img: "https://123kawa.pl/wp-content/uploads/2018/04/123-kawa-09_1024.jpg",
+    desc: "Coffee plantations, misty hills, and waterfalls."
+  },
+  {
+    name: "Gokarna",
+    img: "https://static.india.com/wp-content/uploads/2019/04/Kudle-Beach-Gokarna.jpg?impolicy=Medium_Resize&w=1200&h=800",
+    desc: "Laid-back beaches and temples."
+  }
+];
+
+  const hiddenGems = [
+    {
+      name: "Agumbe",
+      img: "https://tintonresorts.com/wp-content/uploads/2023/11/Agumbe-2.jpeg",
+      desc: "Rainforest village, known as the 'Cherrapunji of the South'."
+    },
+    {
+      name: "Jog Falls in Monsoon",
+      img: "https://i.pinimg.com/736x/9d/65/b0/9d65b0039e2575d8b7eafc8532812ab4.jpg",
+      desc: "One of India’s highest waterfalls, spectacular in the rains."
+    },
+    {
+      name: "Kavaledurga Fort",
+      img: "https://www.matthuga.in/kodachadri/img/images/kaveldurga.jpg",
+      desc: "Historic fort with trekking routes and panoramic views."
+    }
+  ];
+
+  const cityGuides = [
+    {
+      name: "Bengaluru",
+      img: "https://www.savills.com/prospects/wp-content/uploads/cities-lowdown-bengaluru-01.jpg",
+      desc: "India’s Silicon Valley with vibrant nightlife and parks."
+    },
+    {
+      name: "Mysuru",
+      img: "https://images.news18.com/ibnlive/uploads/2023/10/mysuru-dussehra-2023-travel-tips-navratri-2023-10-9f60a428a594df6c266863a90fc026ae.jpg",
+      desc: "Heritage city with palaces, markets, and yoga centers."
+    },
+    {
+      name: "Coastal Towns",
+      img: "https://kundapuraruralayurveda.com/wp-content/uploads/2021/10/marvanthe-beach-1024x575-2.jpg",
+      desc: "Beaches, seafood & lighthouses."
+    }
+  ];
+
+  const itineraries = [
+    {
+      name: "3-Day Trip to Coorg",
+      img: "https://media.istockphoto.com/id/1646252085/photo/a-bewitching-mallalli-waterfall-flows-majestically-in-the-rain-forests-of-the-coorg-hill.jpg?s=612x612&w=0&k=20&c=TAa2bEQtd2ZBNIeHyKHZvVsfHA1IIYrX_FeEYk-AuEU=",
+      details: `Day 1: Abbey Falls, Raja’s Seat\nDay 2: Coffee Estates, Dubare Elephant Camp\nDay 3: Talakaveri, Nisargadhama`
+    },
+    {
+      name: "Weekend in Gokarna",
+      img: "https://s7ap1.scene7.com/is/image/incredibleindia/murudeshwar-temple-gokarna1-attr-hero?qlt=82&ts=1726720950541",
+      details: `Day 1: Om Beach, Kudle Beach\nDay 2: Half Moon Beach, Local Temples`
+    }
+  ];
+
+  function createClickableCard(item) {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+
+    const title = document.createElement('h3');
+    title.textContent = item.name;
+
+    const desc = document.createElement('p');
+    desc.textContent = item.desc;
+
+    desc.style.display = 'none';
+
+    img.addEventListener('click', () => {
+      desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    });
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(desc);
+
+    return card;
+  }
+
+  function createItineraryCard(item) {
+    const card = document.createElement('div');
+    card.className = 'itinerary-card';
+
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+
+    const title = document.createElement('h3');
+    title.textContent = item.name;
+
+    const details = document.createElement('p');
+    details.textContent = item.details;
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(details);
+
+    return card;
+  }
+
+  function renderSection(containerId, data, cardCreator) {
+    const container = document.getElementById(containerId);
+    data.forEach(item => {
+      container.appendChild(cardCreator(item));
+    });
+  }
+
+  renderSection('top-destinations', topDestinations, createClickableCard);
+  renderSection('hidden-gems', hiddenGems, createClickableCard);
+  renderSection('city-guides', cityGuides, createClickableCard);
+  renderSection('itineraries', itineraries, createItineraryCard);
+</script>
+
+</body>
+</html>

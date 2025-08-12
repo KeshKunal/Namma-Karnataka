@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Karnataka - One State, Many Worlds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container main-nav">
+            <a href="index.html" class="logo">ನಮ್ಮKarnataka</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="modern.html">Modern</a></li>
+                <li><a href="nature.html">Nature</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="tourism.html">Tourism</a></li>
+                <li><a href="food.html">Cuisine</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle light/dark mode">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>One State, Many Worlds</h1>
+                <p>Discover the vibrant heritage, breathtaking landscapes, and rich culture of Karnataka.</p>
+                <a href="#explore" class="hero-button">Start Exploring</a>
+            </div>
+        </section>
+
+        <section id="explore" class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Explore Karnataka's Treasures</h2>
+                    <p>A glimpse into the soul of Southern India.</p>
+                </div>
+                <!-- This container will be filled by the script below -->
+                <div id="feature-cards-container" class="cards-container"></div>
+            </div>
+        </section>
+        <!-- About Us Section -->
+<section id="about-us" class="contact-section"> <!-- Reusing styles for similar padding -->
+    <div class="container">
+        <div class="section-title">
+            <h2>About Our Project</h2>
+            <p>The team behind this celebration of Karnataka.</p>
+        </div>
+        <div class="feature-grid">
+            <center> <img src="images/colored_sketch.webp" alt="Our Team">
+            <div>
+                <h3>Our Mission</h3></center>
+                <p>
+                    We are a team of passionate students dedicated to showcasing the rich tapestry of Karnataka's culture, history, and natural beauty. This project is born from a shared love for our state and a desire to create a comprehensive digital resource for travelers, researchers, and anyone curious about this incredible land.
+                </p>
+                <p style="margin-top: 15px;">
+                    Our goal is to present a modern, user-friendly platform that captures the essence of "One State, Many Worlds." We hope this website inspires you to explore and appreciate all that Karnataka has to offer.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="contact" class="contact-section">
+             <div class="container">
+                <div class="form-container">
+                    <div class="section-title">
+                        <h2>Share Your Feedback</h2>
+                        <p>Have a question or a suggestion? We'd love to hear from you!</p>
+                    </div>
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                            <p class="error-message">Please enter your name.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <p class="error-message">Please enter a valid email address.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
+                            <p class="error-message">Please enter a message.</p>
+                        </div>
+                        <button type="submit" class="form-button">Send Message</button>
+                    </form>
+                    <div id="success-message">Thank you! Your message has been saved.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <footer class="main-footer">
+    
+    <div style="width: 100%; height: 8px; background-color: #FFD700;"></div> 
+    <div style="width: 100%; height: 8px; background-color: #FF0000;"></div> 
+
+    <div class="container">
+        <p>&copy; 2025 ನಮ್ಮKarnataka. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <!-- Link to the shared JavaScript file -->
+    <script src="js/script.js"></script>
+
+    <!-- Page-specific script for generating feature cards -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardsContainer = document.getElementById('feature-cards-container');
+            if (cardsContainer) {
+                const pagesData = [
+                    { title: 'Rich History', description: 'Journey through the dynasties and empires that shaped this ancient land.', imageUrl: 'images/rich_history.jpeg', link: 'history.html' },
+                    { title: 'Modern Karnataka', description: 'Explore the innovation, IT hubs, and modern culture of the state.', imageUrl: 'images/airport.avif', link: 'modern.html' },
+                    { title: 'Nature & Wildlife', description: 'Discover lush forests of the Western Ghats and diverse wildlife sanctuaries.', imageUrl: 'images/tiger.jpg', link: 'nature.html' },
+                    { title: 'Breathtaking Tourism', description: 'Visit majestic palaces in Mysuru, ancient ruins in Hampi, and bustling Bengaluru.', imageUrl: 'images/nagarahole.jpg', link: 'tourism.html' },
+                    { title: 'Delicious Cuisine', description: 'Savor the unique flavors, from the crispy Masala Dosa to the sweet Mysore Pak.', imageUrl: 'images/foods.webp', link: 'food.html' },
+                    { title: 'Culture & Heritage', description: 'Immerse yourself in Yakshagana theatre, classical music, and colorful festivals.', imageUrl: 'images/culture.webp', link: 'culture.html' }
+                ];
+
+                let cardsHTML = '';
+                pagesData.forEach(page => {
+                    cardsHTML += `
+                        <a href="${page.link}" class="card">
+                            <img src="${page.imageUrl}" alt="${page.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333?text=Image+Not+Found';">
+                            <div class="card-content">
+                                <h3>${page.title}</h3>
+                                <p>${page.description}</p>
+                            </div>
+                        </a>
+                    `;
+                });
+                cardsContainer.innerHTML = cardsHTML;
+            }
+        });
+    </script>
+</body>
+</html>

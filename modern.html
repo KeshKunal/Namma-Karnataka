@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Karnataka - The Innovation Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 50px 0;
+        }
+        .feature-grid img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .icon-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .icon-list li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .icon-list .icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--karnataka-yellow);
+            width: 30px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container main-nav">
+            <a href="index.html" class="logo">ನಮ್ಮKarnataka</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="modern.html">Modern</a></li>
+                <li><a href="nature.html">Nature</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="tourism.html">Tourism</a></li>
+                <li><a href="food.html">Cuisine</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle light/dark mode">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section container">
+            <h1>The Pulse of Modern Karnataka</h1>
+            <p>
+                While deeply rooted in history, Karnataka is a forward-looking state that stands at the forefront of India's technological, educational, and cultural revolution. It's a place where ancient traditions and cutting-edge innovations coexist and thrive.
+            </p>
+
+            <!-- Section 1: IT & Innovation -->
+            <div class="feature-grid">
+                <div>
+                    <h2>Bengaluru: The Silicon Valley of India</h2>
+                    <p>
+                        The capital city, Bengaluru, is the heart of India's IT industry. It's a global hub for technology companies, startups, and research institutions, driving innovation in software, biotechnology, and aerospace. This dynamic environment attracts the brightest minds from across the world.
+                    </p>
+                </div>
+                <img src="images/link_road.webp" alt="Bengaluru skyline">
+            </div>
+
+            <!-- Section 2: Education -->
+            <div class="section-title" style="margin-top: 60px;">
+                <h2>A Hub of Education & Excellence</h2>
+                <p>The state is home to some of India's most prestigious educational and research institutions.</p>
+            </div>
+            <div class="cards-container">
+                 <div class="card">
+                    <div class="card-content">
+                        <h3>Indian Institute of Science (IISc)</h3>
+                        <p>A world-renowned institution for scientific and engineering research. Established in 1909 through the vision of J.N. Tata, IISc is a premier public university for higher education and research in science, engineering, design, and management, consistently ranking as India's #1 university and research institution.</p>
+                        <img src="images/iisc.jpg" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Indian Institutes of Management (IIM-B)</h3>
+                        <p>One of the top business schools in the Asia-Pacific region. Known for its rigorous MBA and doctoral programs, world-class faculty, strong industry connections, and focus on holistic, transformative education.</p>
+                        <img src="images/iimb.avif" alt="">
+                    </div>
+                </div>
+                 <div class="card">
+                    <div class="card-content">
+                        <h3>National Law School (NLSIU)</h3>
+                        <p>India's premier law university, consistently ranked as the best in the country. Known for its rigorous five-year integrated BA LLB program, esteemed faculty, pioneering reforms in legal education, and consistently securing the top position in national rankings.</p>
+                        <img src="images/nlsiu.jpg" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>National Institute of Technology, Karnataka</h3>
+                        <p>Institute of National Importance, offering a wide array of engineering, science, and management programs, known for its excellent placements, research opportunities, and vibrant student life on a lush green campus with its own beach along the Arabian Sea.</p>
+                        <img src="images/nitk.webp" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Sports, Cinema & Culture -->
+             <div class="feature-grid">
+                <img src="images/cinema.jpeg">
+                <div>
+                    <h2>Sports, Cinema, and Personalities</h2>
+                    <ul class="icon-list">
+            <li><span class="icon">🏆</span>
+                <strong>Sporting Legends:</strong> Karnataka is a powerhouse in Indian sports, producing cricket legends like Rahul Dravid and Anil Kumble, and badminton stars like Prakash Padukone.
+            </li>
+            <li><span class="icon">🎬</span>
+                <strong>Sandalwood's Rise:</strong> The Kannada film industry has gained global acclaim with blockbuster hits like the K.G.F. series, known for their grand scale and technical prowess.
+            </li>
+            <li><span class="icon">🌟</span>
+                <strong>National & Global Impact:</strong> Beyond IT, Karnataka is home to globally recognized personalities in science and literature, and its startups consistently make headlines on the world stage.
+            </li>
+        </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    
+    <div style="width: 100%; height: 8px; background-color: #FFD700;"></div> 
+    <div style="width: 100%; height: 8px; background-color: #FF0000;"></div> 
+
+    <div class="container">
+        <p>&copy; 2025 ನಮ್ಮKarnataka. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <!-- This script will handle the theme and active nav link automatically -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Karnataka Culture & Heritage</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  h1, h2 {
+    text-align: center;
+  }
+  .section {
+    margin-bottom: 40px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+  }
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    background: var(--card-bg);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+  .card img {
+    width: 100%;
+    display: block;
+  }
+  .card h3 {
+    margin: 10px;
+  }
+  .card p {
+    margin: 0 10px 10px 10px;
+    display: none;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  @media (max-width: 600px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<script src="js/script.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container main-nav">
+            <a href="index.html" class="logo">ನಮ್ಮKarnataka</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="modern.html">Modern</a></li>
+                <li><a href="nature.html">Nature</a></li>
+                <li><a href="culture.html" class="active">Culture</a></li>
+                <li><a href="tourism.html">Tourism</a></li>
+                <li><a href="food.html">Cuisine</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle light/dark mode">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Karnataka Culture & Heritage</h1>
+
+            <section class="section">
+              <h2>Language & Literature</h2>
+              <div class="cards" id="language-literature"></div>
+            </section>
+
+            <section class="section">
+              <h2>Dance & Music</h2>
+              <div class="cards" id="dance-music"></div>
+            </section>
+
+            <section class="section">
+              <h2>Festivals</h2>
+              <div class="cards" id="festivals"></div>
+            </section>
+
+            <section class="section">
+              <h2>Temples & Architecture</h2>
+              <div class="cards" id="temples-architecture"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div style="width: 100%; height: 8px; background-color: #FFD700;"></div>
+        <div style="width: 100%; height: 8px; background-color: #FF0000;"></div>
+        <div class="container">
+            <p>&copy; 2025 ನಮ್ಮKarnataka. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<script>
+
+
+  // Data arrays for Culture & Heritage
+  const languageLiterature = [
+    {
+      name: "Kannada Language History",
+      img: "https://www.indica.today/wp-content/uploads/2023/02/Spirals-and-Curves-in-the-Paleographical-Evolution-of-Kannada-Language-Alphabets-700x394.jpg",
+      desc: "One of the oldest Dravidian languages, rich in literature and culture."
+    },
+    {
+      name: "Kuvempu",
+      img: "https://images.hindustantimes.com/kannada/img/2022/12/29/960x540/kuvempu_1672291309853_1672291322421_1672291322421.JPG",
+      desc: "Famous Kannada poet and writer, Jnanpith awardee."
+    },
+    {
+      name: "D.R. Bendre",
+      img: "https://www.priyakrishna.com/uploads/news_events/8e80b7d51077ae35b9e8f1894df74236.jpg",
+      desc: "Renowned Kannada poet and Jnanpith laureate."
+    }
+  ];
+
+  const danceMusic = [
+    {
+      name: "Yakshagana",
+      img: "https://www.gosahin.com/go/p/j/1576445924_yakshagana-folk-dance-and-theatre.jpg",
+      desc: "Traditional folk theatre combining dance, music, dialogue and costume."
+    },
+    {
+      name: "Dollu Kunitha",
+      img: "https://www.shutterstock.com/image-photo/hyderabadindiajanuary-14artists-perform-dollu-kunitha-600nw-557728216.jpg",
+      desc: "Drum dance popular in Karnataka’s rural areas."
+    },
+    {
+      name: "Carnatic Music",
+      img: "https://thefederal.com/file/2019/11/Margazhi-Season-Promo.jpg",
+      desc: "Classical music tradition of South India, emphasizing vocal music."
+    }
+  ];
+
+  const festivals = [
+    {
+      name: "Mysuru Dasara",
+      img: "https://static.toiimg.com/thumb/msid-114110656,width-1280,height-720,resizemode-4/114110656.jpg",
+      desc: "Ten-day royal festival celebrating goddess Chamundeshwari."
+    },
+    {
+      name: "Kambala Buffalo Race",
+      img: "https://livewire.thewire.in/wp-content/uploads/2022/10/Screenshot-2022-10-17-at-6.24.32-PM-1200x600.png",
+      desc: "Traditional buffalo race held in paddy fields."
+    },
+    {
+      name: "Karaga Festival",
+      img: "https://utsav.gov.in/public/uploads/event_cover_image/event_420/1657273768657075168.jpg",
+      desc: "Ancient folk festival celebrated by the Tigala community."
+    }
+  ];
+
+  const templesArchitecture = [
+    {
+      name: "Chennakesava Temple, Belur",
+      img: "https://epuja.co.in/upload/Belur-Channakeshava-Vishnu-Temple-Belur-Hassan-Karnataka.jpg",
+      desc: "Magnificent Hoysala temple known for intricate carvings."
+    },
+    {
+      name: "Halebidu Carvings",
+      img: "https://media.istockphoto.com/id/1396712834/photo/sculptures-on-the-outer-walls-of-hoysaleswara-temple-at-halebidu-the-former-capital-of-the.jpg?s=612x612&w=0&k=20&c=hbX0NfRK6MBOtJO2RN8--Rt3PXcfzfv5EZP_34fsjnw=",
+      desc: "Masterpieces of Hoysala architecture with detailed sculptures."
+    }
+  ];
+
+  function createClickableCard(item) {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+
+    const title = document.createElement('h3');
+    title.textContent = item.name;
+
+    const desc = document.createElement('p');
+    desc.textContent = item.desc;
+    desc.style.display = 'none';
+
+    img.addEventListener('click', () => {
+      desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    });
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(desc);
+
+    return card;
+  }
+
+  function renderSection(containerId, data) {
+    const container = document.getElementById(containerId);
+    data.forEach(item => {
+      container.appendChild(createClickableCard(item));
+    });
+  }
+
+  renderSection('language-literature', languageLiterature);
+  renderSection('dance-music', danceMusic);
+  renderSection('festivals', festivals);
+  renderSection('temples-architecture', templesArchitecture);
+</script>
+</body>
+</html>

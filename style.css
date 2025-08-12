@@ -1,0 +1,345 @@
+    :root {
+        /* Light Mode Colors */
+        --bg-color: #f8f9fa;
+        --text-color: #212529;
+        --card-bg: #ffffff;
+        --nav-bg: rgba(255, 255, 255, 0.8);
+        --border-color: #dee2e6;
+        --karnataka-yellow: #fbb03b;
+        --karnataka-red: #e54d42;
+        --subtle-bg: #e9ecef;
+        --subtle-text: #6c757d;
+    
+        /* Fonts */
+        --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    
+    [data-theme="dark"] {
+        /* Dark Mode Colors */
+        --bg-color: #121212;
+        --text-color: #e8e6e3;
+        --card-bg: #1e1e1e;
+        --nav-bg: rgba(20, 20, 20, 0.8);
+        --border-color: #444;
+        --subtle-bg: #2a2a2a;
+        --subtle-text: #adb5bd;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: var(--font-family);
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* ------------------- */
+    /* --- HEADER & NAVIGATION --- */
+    /* ------------------- */
+    .main-header {
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    
+    .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--karnataka-red);
+        text-decoration: none;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+        color: var(--karnataka-yellow);
+    }
+    
+    /* Active state for current page link */
+    .nav-links a.active {
+        color: var(--karnataka-yellow);
+        font-weight: bold;
+    }
+    
+    .theme-toggle-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--text-color);
+        padding: 5px;
+    }
+    
+    .hero {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        background-image: url('images/mainpalace.jpeg');
+        background-position: center;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-top: 1rem;
+    }
+    
+    .hero-button {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 12px 28px;
+        background-color: var(--karnataka-yellow);
+        color: #111;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+    
+    .hero-button:hover {
+        transform: scale(1.05);
+        background-color: #ffc107;
+    }
+    
+    /* ------------------- */
+    /* --- FEATURE CARDS SECTION --- */
+    /* ------------------- */
+    .features-section {
+        padding: 60px 0;
+        background-color: var(--subtle-bg);
+        transition: background-color 0.3s;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .section-title p {
+        color: var(--subtle-text);
+        font-size: 1.1rem;
+    }
+    
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        overflow: hidden;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card h3 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+    }
+    
+    /* ------------------- */
+    /* --- CONTACT FORM SECTION --- */
+    /* ------------------- */
+    .contact-section {
+        padding: 60px 0;
+    }
+    
+    .form-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: var(--card-bg);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: border-color 0.3s, background-color 0.3s;
+    }
+    
+    .form-input:focus {
+        outline: none;
+        border-color: var(--karnataka-yellow);
+    }
+    
+    .form-button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--karnataka-red);
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .form-button:hover {
+        background-color: #c5392f;
+    }
+    
+    .error-message {
+        color: #dc3545;
+        font-size: 0.9rem;
+        margin-top: 5px;
+        display: none; /* Hidden by default */
+    }
+    
+    #success-message {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        text-align: center;
+        display: none; /* Hidden by default */
+    }
+    
+    /* ------------------- */
+    /* --- FOOTER --- */
+    /* ------------------- */
+    .main-footer {
+        background-color: #212529;
+        color: #ced4da;
+        text-align: center;
+        padding: 30px 0;
+    }
+    
+    .main-footer p {
+        margin-bottom: 5px;
+    }
+    
+    /* ------------------- */
+    /* --- RESPONSIVE DESIGN --- */
+    /* ------------------- */
+    @media (max-width: 900px) {
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Simple hiding for mobile, a menu button would be needed for a full solution */
+        }
+    
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+    
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .cards-container {
+            grid-template-columns: 1fr;
+        }
+    }
